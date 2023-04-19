@@ -1,0 +1,307 @@
+*, *::after, *::before{
+  box-sizing: border-box;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+html{
+  scroll-behavior: smooth;
+  scroll-padding-top: 8vh;
+  font-size: 62.5%;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  font-family: 'Raleway', sans-serif;
+}
+
+.nav{
+  position: fixed;
+  width: 100%;
+  top: 0;
+  height: 8vh;
+  background-color: #be3144;
+  color: white;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  box-shadow: 0 2px 2px #222;
+  z-index: 2;
+}
+
+.nav ul{
+  margin: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.nav li{
+  list-style: none;
+  padding: 20px;
+  margin-right: 30px;
+  animation: nav-load 400ms ease-in;
+}
+
+.nav li a{
+  text-decoration: none;
+  color: white;
+  font-size: 2.5rem;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.nav li a:hover{
+  background-color: rgba(255,255,255,0.3);
+  cursor: pointer;
+  transition:100ms ease-in;
+}
+
+.sections-div{
+  margin-top: 8vh;
+  height: fit-content;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome-section{
+  height: 92vh;
+  width: 100%;
+  row-gap: 40px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  background: #0e1525;
+  font-size: 2.5rem;
+  color: white;
+}
+
+.welcome-section h1{
+  font-size: 6rem;
+  animation: welcome-load 500ms ease-in-out 400ms;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  text-shadow: 2px 2px 5px #222;
+}
+
+.welcome-section p{
+  font-style: oblique;
+  width: 40vw;
+  overflow: hidden;
+  line-height: 1.5;
+  animation: welcome-load 500ms ease-in-out 600ms;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.projects{
+  height : fit-content;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  background: linear-gradient(
+    to right,
+    #3c445eAA,
+    #45567dFF
+  ),
+  url("/images/code-html.jpg");
+  color: white;
+}
+
+.projects h2{
+  margin-top: 50px;
+  font-size: 4rem;
+  opacity: 0;
+  text-shadow: 2px 2px 5px black;
+}
+
+hr{
+  margin-top: 5px;
+}
+
+.project-tile{
+  margin-top: 50px;
+  display: grid;
+  width: 90vw;
+  padding: 50px;
+  grid-template-columns: repeat(auto-fit, 400px);
+  grid-gap: 4rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.tile{
+  margin:0;
+  padding:0;
+  height: 400px;
+  width: 400px;
+  text-decoration: none;
+  color: white;
+  display: flex;
+  flex-flow: column;
+  box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.8);
+  position: relative;
+  opacity: 0;
+}
+
+.tile img{
+  margin-bottom:0;
+  padding:0;
+  height:320px;
+  width:400px;
+  object-fit: cover;
+}
+
+.tile p{
+  margin:0;
+  padding:0;
+  height: 80px;
+  width: 400px;
+  font-size: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #232935;
+}
+
+.tile::before{
+  content:"";
+  right: 0;
+  left: 0;
+  bottom: 0;
+  height: 5px;
+  position: absolute;
+  background-color: #DDDDDD00;
+  transform: scaleX(0);
+  transition: transform 300ms ease-in-out;
+}
+
+.tile:hover::before{
+  background-color: #ff7f50AA;
+  transform: scaleX(1);
+}
+
+.contact{
+  height: 82vh;
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right,#1F1C2C, #928DAB);
+  color: white;
+  row-gap: 100px;
+  text-shadow: 2px 2px 5px black;
+}
+
+.contact h2{
+  font-size: 5rem;
+  opacity: 0;
+}
+
+.contact-links{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  width: fit-content;
+  height: fit-content;
+  opacity: 0;
+}
+
+.contact-links a{
+  margin: 30px;
+  color: white;
+  text-decoration: none;
+  font-size: 2.5rem;
+  transform: translateY(0px);
+  padding: 10px;
+  transition: 100ms ease-in-out;
+}
+
+.contact-links a:hover{
+  transform: translateY(20px);
+  transition: 300ms ease-in-out;
+}
+
+footer{
+  height:10vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+  padding: 20px;
+  font-size: 2rem;
+  background-color: rgb(0, 68, 120);
+  border-top:5px solid #0e1525;
+}
+
+
+/*CSS Animations */
+@keyframes nav-load {
+  0%{
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  100%{
+    transform: translateY(0);
+    opacity: 1;
+  }  
+}
+
+@keyframes welcome-load{
+  0%{
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  100%{
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* IntersectionObserver Classes */
+.h2-load{
+  animation: h2load 400ms ease-in;
+  animation-fill-mode: forwards;
+}
+
+@keyframes h2load {
+  0%{
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+
+  100%{
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.tile-load{
+  animation: tileload 400ms ease-in;
+  animation-fill-mode: forwards;
+}
+
+@keyframes tileload {
+  0%{
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+
+  100%{
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
